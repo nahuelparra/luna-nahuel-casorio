@@ -1,0 +1,103 @@
+{
+  "entities": {
+    "RSVPGuest": {
+      "title": "RSVPGuest",
+      "description": "Guest RSVP submission for the wedding",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique RSVP identifier"
+        },
+        "fullName": {
+          "type": "string",
+          "description": "Full name of the invited guest"
+        },
+        "attending": {
+          "type": "string",
+          "enum": ["yes", "no"],
+          "description": "Attendance confirmation"
+        },
+        "guestsCount": {
+          "type": "number",
+          "description": "Number of attendees (1 or 2)"
+        },
+        "companionNames": {
+          "type": "string",
+          "description": "Name of the companion if any"
+        },
+        "dietaryRequirement": {
+          "type": "string",
+          "description": "Dietary needs"
+        },
+        "dietaryDetails": {
+          "type": "string",
+          "description": "Details about dietary requirement"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Contact phone number"
+        },
+        "email": {
+          "type": "string",
+          "description": "Contact email address"
+        },
+        "songRequest": {
+          "type": "string",
+          "description": "Requested party song"
+        },
+        "personalMessage": {
+          "type": "string",
+          "description": "Wishes and dedication for the couple"
+        },
+        "submittedAt": {
+          "type": "string",
+          "description": "ISO timestamp of submission"
+        }
+      },
+      "required": ["fullName", "attending", "guestsCount", "submittedAt"]
+    },
+    "InvitedGuest": {
+      "title": "InvitedGuest",
+      "description": "Invited guest in the official registry",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique guest identifier"
+        },
+        "fullName": {
+          "type": "string",
+          "description": "Full name of the invited guest"
+        },
+        "allowedSeats": {
+          "type": "number",
+          "description": "Allocated seats (1 or 2)"
+        },
+        "groupCategory": {
+          "type": "string",
+          "description": "Category or circle"
+        },
+        "suggestedCompanion": {
+          "type": "string",
+          "description": "Optional name of the companion"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last update"
+        }
+      },
+      "required": ["id", "fullName", "allowedSeats"]
+    }
+  },
+  "firestore": {
+    "/rsvps/{rsvpId}": {
+      "schema": "RSVPGuest",
+      "description": "Collection of wedding RSVP responses submitted by guests"
+    },
+    "/padron/{guestId}": {
+      "schema": "InvitedGuest",
+      "description": "Official wedding guest list with seat allowances"
+    }
+  }
+}

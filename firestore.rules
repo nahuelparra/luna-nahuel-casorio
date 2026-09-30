@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Connection test document
+    match /test/connection {
+      allow read, write: if true;
+    }
+
+    // RSVPs collection: guests can submit responses, read and manage
+    match /rsvps/{rsvpId} {
+      allow read, write: if true;
+    }
+
+    // Padron / invited guests collection
+    match /padron/{guestId} {
+      allow read, write: if true;
+    }
+
+    // Fallback rule for all documents
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

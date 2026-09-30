@@ -1,0 +1,6 @@
+{
+  "name": "Casamiento de Luna & Nahuel | Invitación & Confirmación",
+  "description": "Invitación de casamiento de Luna & Nahuel: 21 de Noviembre de 2026 en San Telmo. Cuenta regresiva, itinerario, ubicación y confirmación de asistencia (RSVP).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
